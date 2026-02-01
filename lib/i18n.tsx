@@ -22,6 +22,7 @@ const translations = {
     
     // Hero
     "hero.greeting": "Hello, I'm",
+    "hero.name": "Avraham Sason",
     "hero.title": "Full Stack Developer",
     "hero.subtitle": "Building scalable, production-grade web applications with modern technologies. Specializing in frontend excellence and cloud infrastructure.",
     "hero.cta": "View My Work",
@@ -116,6 +117,7 @@ const translations = {
     // Hero
     "hero.greeting": "שלום, אני",
     "hero.title": "מפתח Full Stack",
+    "hero.name": "אברהם ששון",
     "hero.subtitle": "בונה אפליקציות ווב ברמת ייצור עם טכנולוגיות מודרניות. מתמחה במצוינות בצד הלקוח ותשתיות ענן.",
     "hero.cta": "צפה בעבודות",
     "hero.contact": "צור קשר",

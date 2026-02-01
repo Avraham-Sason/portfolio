@@ -15,11 +15,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Nahum Takum | Full Stack Developer',
+  title: 'Avraham Sason | Full Stack Developer',
   description: 'Senior Full Stack Developer specializing in React, TypeScript, Node.js, and cloud infrastructure. Building scalable, production-grade web applications.',
   keywords: ['Full Stack Developer', 'React', 'TypeScript', 'Node.js', 'Next.js', 'Cloud', 'Kubernetes', 'GCP'],
-  authors: [{ name: 'Nahum Takum' }],
-  creator: 'Nahum Takum',
+  authors: [{ name: 'Avraham Sason' }],
+  creator: 'Avraham Sason',
   generator: 'v0.app',
   icons: {
     icon: [
