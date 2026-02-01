@@ -159,3 +159,46 @@
 .animation-delay-400 { animation-delay: 400ms; }
 .animation-delay-500 { animation-delay: 500ms; }
 .animation-delay-600 { animation-delay: 600ms; }
+
+/* Animated gradient border */
+@keyframes gradient-rotate {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.animate-gradient-border {
+  --gradient-angle: 0deg;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    var(--primary) 0%,
+    var(--accent) 25%,
+    var(--chart-3) 50%,
+    var(--accent) 75%,
+    var(--primary) 100%
+  );
+  animation: gradient-rotate 3s linear infinite;
+}
+
+.animate-gradient-border-glow {
+  --gradient-angle: 0deg;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    oklch(0.65 0.2 250 / 0.4) 0%,
+    oklch(0.6 0.22 290 / 0.4) 25%,
+    oklch(0.55 0.18 270 / 0.4) 50%,
+    oklch(0.6 0.22 290 / 0.4) 75%,
+    oklch(0.65 0.2 250 / 0.4) 100%
+  );
+  animation: gradient-rotate 3s linear infinite;
+  filter: blur(20px);
+}

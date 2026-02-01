@@ -78,8 +78,11 @@ export function Hero() {
                     {/* Right Content - Code Block */}
                     <div className={`hidden lg:block ${isRTL ? "lg:order-1" : ""}`}>
                         <div className="relative animate-fade-in animation-delay-300">
-                            <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/5 rounded-2xl blur-xl" />
-                            <div className="relative bg-card border border-border rounded-xl p-6 font-mono text-sm overflow-hidden">
+                            {/* Animated glow effect */}
+                            <div className="absolute -inset-4 animate-gradient-border-glow rounded-2xl" />
+                            {/* Animated border */}
+                            <div className="absolute -inset-px animate-gradient-border rounded-xl" />
+                            <div className="relative bg-card rounded-xl p-6 font-mono text-sm overflow-hidden">
                                 <div className="flex gap-2 mb-4">
                                     <div className="w-3 h-3 rounded-full bg-destructive/50" />
                                     <div className="w-3 h-3 rounded-full bg-chart-4/50" />
