@@ -76,13 +76,13 @@ export function Hero() {
                     </div>
 
                     {/* Right Content - Code Block */}
-                    <div className={`hidden lg:block ${isRTL ? "lg:order-1" : ""}`}>
-                        <div className="relative animate-fade-in animation-delay-300">
+                    <div className={`w-full ${isRTL ? "lg:order-1" : ""}`}>
+                        <div className="relative animate-fade-in animation-delay-300  w-full max-w-[300px] sm:max-w-lg mx-auto lg:max-w-none">
                             {/* Animated glow effect */}
                             <div className="absolute -inset-4 animate-gradient-border-glow rounded-2xl" />
                             {/* Animated border */}
                             <div className="absolute -inset-px animate-gradient-border rounded-xl" />
-                            <div className="relative bg-card rounded-xl p-6 font-mono text-sm overflow-hidden">
+                            <div className="relative bg-card rounded-xl p-4 sm:p-6 font-mono text-xs sm:text-sm overflow-hidden">
                                 <div className="flex gap-2 mb-4">
                                     <div className="w-3 h-3 rounded-full bg-destructive/50" />
                                     <div className="w-3 h-3 rounded-full bg-chart-4/50" />
