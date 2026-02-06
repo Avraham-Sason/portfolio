@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { useLanguage } from "@/lib/i18n"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Globe } from "lucide-react"
+import Image from "next/image"
 
 export function Header() {
   const { language, setLanguage, t, isRTL } = useLanguage()
@@ -42,9 +43,9 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           <a
             href="#"
-            className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+            className="text-xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent hover:opacity-80 transition-opacity"
           >
-            NT
+            <Image src="/logo_small.png" alt="Logo" width={32} height={32} className="w-8 h-8" />
           </a>
 
           {/* Desktop Navigation */}

@@ -81,7 +81,7 @@ export function Infrastructure() {
 
           {/* Architecture Diagram Hint */}
           <div className="mt-16 relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/5 to-transparent" />
             <div className="relative bg-secondary/30 border border-border rounded-xl p-8 text-center">
               <div className="flex justify-center gap-4 mb-6">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">

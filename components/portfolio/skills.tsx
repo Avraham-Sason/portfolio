@@ -113,7 +113,7 @@ export function Skills() {
                       </div>
                       <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
                         <div
-                          className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out"
+                          className="h-full bg-linear-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out"
                           style={{
                             width: isVisible ? `${skill.level}%` : "0%",
                             transitionDelay: `${categoryIndex * 100 + 300}ms`,
