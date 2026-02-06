@@ -15,9 +15,9 @@ export function Portfolio() {
   const { isRTL } = useLanguage()
 
   return (
-    <div dir={isRTL ? "rtl" : "ltr"} className="min-h-screen">
+    <div dir={isRTL ? "rtl" : "ltr"} className="min-h-dvh w-full overflow-x-hidden">
       <Header />
-      <main>
+      <main className="w-full">
         <Hero />
         <About />
         <Skills />

@@ -85,10 +85,12 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground w-full overflow-x-hidden;
   }
   html {
     scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
   }
   html[dir="rtl"] {
     direction: rtl;
@@ -186,7 +188,7 @@
     var(--accent) 75%,
     var(--primary) 100%
   );
-  animation: gradient-rotate 3s linear infinite;
+  animation: gradient-rotate 1.5s linear infinite;
 }
 
 .animate-gradient-border-glow {
@@ -199,6 +201,6 @@
     oklch(0.6 0.22 290 / 0.4) 75%,
     oklch(0.65 0.2 250 / 0.4) 100%
   );
-  animation: gradient-rotate 3s linear infinite;
+  animation: gradient-rotate 1.5s linear infinite;
   filter: blur(20px);
 }

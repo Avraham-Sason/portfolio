@@ -22,19 +22,19 @@ export function Hero() {
                     <div className={`space-y-8 ${isRTL ? "lg:order-2" : ""}`}>
                         <div className="space-y-4">
                             <p className="text-primary font-mono text-sm tracking-wider animate-fade-in-up">{t("hero.greeting")}</p>
-                            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground animate-fade-in-up animation-delay-100">
+                            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground animate-fade-in-up animation-delay-200 ">
                                 {t("hero.name")}
                             </h1>
-                            <h2 className="text-2xl sm:text-3xl text-muted-foreground font-light animate-fade-in-up animation-delay-200">
+                            <h2 className="text-2xl sm:text-3xl text-muted-foreground font-light animate-fade-in-up animation-delay-300">
                                 {t("hero.title")}
                             </h2>
                         </div>
 
-                        <p className="text-lg text-muted-foreground leading-relaxed max-w-xl animate-fade-in-up animation-delay-300">
+                        <p className="text-lg text-muted-foreground leading-relaxed max-w-xl animate-fade-in-up animation-delay-400">
                             {t("hero.subtitle")}
                         </p>
 
-                        <div className="flex flex-wrap gap-4 animate-fade-in-up animation-delay-400">
+                        <div className="flex flex-wrap gap-4 animate-fade-in-up animation-delay-500">
                             <Button asChild size="lg" className="gap-2">
                                 <a href="#projects">
                                     {t("hero.cta")}
@@ -46,7 +46,7 @@ export function Hero() {
                             </Button>
                         </div>
 
-                        <div className="flex gap-4 pt-4 animate-fade-in-up animation-delay-500">
+                        <div className="flex gap-4 pt-4 animate-fade-in-up animation-delay-600">
                             <a
                                 href="https://github.com"
                                 target="_blank"

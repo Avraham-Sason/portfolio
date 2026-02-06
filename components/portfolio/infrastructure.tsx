@@ -2,7 +2,81 @@
 
 import { useLanguage } from "@/lib/i18n"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
-import { Container, Network, Cloud, Cog } from "lucide-react"
+import { Container, Network, Cloud, Cog, LucideIcon } from "lucide-react"
+
+const InfrastructureCard = ({
+  item,
+  index,
+}: {
+  item: {
+    icon: LucideIcon
+    title: string
+    description: string
+  }
+  index: number
+}) => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 })
+  const Icon = item.icon
+  const isFromLeft = index % 2 === 0;
+  return (
+    <div
+      ref={ref}
+      className={`group relative bg-card border border-border rounded-xl p-6 transition-all duration-700 hover:border-primary/50 hover:-translate-y-1 ${
+        isVisible
+          ? "opacity-100 translate-y-0 translate-x-0"
+          : isFromLeft ? "opacity-0 -translate-x-10 -translate-y-10" : "opacity-0 translate-x-10 translate-y-10"
+      }`}
+    >
+      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+        <Icon className="h-6 w-6 text-primary" />
+      </div>
+      <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+        {item.title}
+      </h3>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        {item.description}
+      </p>
+    </div>
+  )
+}
+
+const ArchitectureDiagram = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 })
+
+  return (
+    <div
+      ref={ref}
+      className={`mt-16 relative transition-all duration-700 ${
+        isVisible ? "opacity-100 translate-y-0 translate-x-0" : "opacity-0 translate-y-10 translate-x-10"
+      }`}
+    >
+      <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/5 to-transparent" />
+      <div className="relative bg-secondary/30 border border-border rounded-xl p-8 text-center">
+        <div className="flex justify-center gap-4 mb-6 flex-wrap">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="w-3 h-3 rounded-full bg-primary" />
+            <span>Frontend</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="w-3 h-3 rounded-full bg-chart-2" />
+            <span>API</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="w-3 h-3 rounded-full bg-chart-3" />
+            <span>Services</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="w-3 h-3 rounded-full bg-chart-4" />
+            <span>Data</span>
+          </div>
+        </div>
+        <p className="text-muted-foreground text-sm max-w-xl mx-auto">
+          Modern architectures demand a holistic understanding of the entire stack. From user-facing interfaces to data persistence, every layer matters.
+        </p>
+      </div>
+    </div>
+  )
+}
 
 export function Infrastructure() {
   const { t } = useLanguage()
@@ -37,7 +111,7 @@ export function Infrastructure() {
         <div
           ref={ref}
           className={`transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            isVisible ? "opacity-100 translate-y-0 translate-x-0" : "opacity-0 translate-y-10 -translate-x-10"
           }`}
         >
           {/* Section Header */}
@@ -55,60 +129,13 @@ export function Infrastructure() {
 
           {/* Infrastructure Grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {items.map((item, index) => {
-              const Icon = item.icon
-              return (
-                <div
-                  key={item.title}
-                  className="group relative bg-card border border-border rounded-xl p-6 transition-all duration-300 hover:border-primary/50"
-                  style={{
-                    transitionDelay: `${index * 100}ms`,
-                  }}
-                >
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <Icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-              )
-            })}
+            {items.map((item, index) => (
+              <InfrastructureCard key={item.title} item={item} index={index} />
+            ))}
           </div>
 
           {/* Architecture Diagram Hint */}
-          <div className="mt-16 relative">
-            <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/5 to-transparent" />
-            <div className="relative bg-secondary/30 border border-border rounded-xl p-8 text-center">
-              <div className="flex justify-center gap-4 mb-6">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <div className="w-3 h-3 rounded-full bg-primary" />
-                  <span>Frontend</span>
-                </div>
-                <div className="w-8 border-t border-dashed border-muted-foreground/50" />
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <div className="w-3 h-3 rounded-full bg-chart-2" />
-                  <span>API</span>
-                </div>
-                <div className="w-8 border-t border-dashed border-muted-foreground/50" />
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <div className="w-3 h-3 rounded-full bg-chart-3" />
-                  <span>Services</span>
-                </div>
-                <div className="w-8 border-t border-dashed border-muted-foreground/50" />
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <div className="w-3 h-3 rounded-full bg-chart-4" />
-                  <span>Data</span>
-                </div>
-              </div>
-              <p className="text-muted-foreground text-sm max-w-xl mx-auto">
-                Modern architectures demand a holistic understanding of the entire stack. From user-facing interfaces to data persistence, every layer matters.
-              </p>
-            </div>
-          </div>
+          <ArchitectureDiagram />
         </div>
       </div>
     </section>

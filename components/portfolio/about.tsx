@@ -3,6 +3,57 @@
 import { useLanguage } from "@/lib/i18n"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
+const TextParagraph = ({
+  text,
+  isLarge = false,
+}: {
+  text: string
+  isLarge?: boolean
+}) => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 })
+
+  return (
+    <p
+      ref={ref}
+      className={`text-muted-foreground leading-relaxed transition-all duration-700 ${
+        isLarge ? "text-lg" : ""
+      } ${
+        isVisible
+          ? "opacity-100 translate-y-0 translate-x-0"
+          : "opacity-0 -translate-y-10 -translate-x-10"
+      }`}
+    >
+      {text}
+    </p>
+  )
+}
+
+const StatCard = ({
+  stat,
+}: {
+  stat: { value: string; label: string }
+}) => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 })
+
+  return (
+    <div
+      ref={ref}
+      className={`bg-secondary/50 border border-border rounded-xl p-6 text-center transition-all duration-700 hover:border-primary/50 hover:bg-secondary hover:-translate-y-1 ${
+        isVisible
+          ? "opacity-100 translate-y-0 translate-x-0"
+          : "opacity-0 translate-y-10 translate-x-10"
+      }`}
+    >
+      <div className="text-4xl font-bold text-primary mb-2">
+        {stat.value}
+      </div>
+      <div className="text-sm text-muted-foreground">
+        {stat.label}
+      </div>
+    </div>
+  )
+}
+
 export function About() {
   const { t, isRTL } = useLanguage()
   const { ref, isVisible } = useScrollAnimation()
@@ -13,13 +64,19 @@ export function About() {
     { value: "15+", label: t("about.technologies") },
   ]
 
+  const paragraphs = [
+    { text: t("about.p1"), isLarge: true },
+    { text: t("about.p2"), isLarge: false },
+    { text: t("about.p3"), isLarge: false },
+  ]
+
   return (
     <section id="about" className="py-24 bg-card/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           ref={ref}
           className={`transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            isVisible ? "opacity-100 translate-y-0 translate-x-0" : "opacity-0 translate-y-10 -translate-x-10"
           }`}
         >
           {/* Section Header */}
@@ -35,35 +92,20 @@ export function About() {
           <div className="grid lg:grid-cols-5 gap-12">
             {/* Text Content */}
             <div className={`lg:col-span-3 space-y-6 ${isRTL ? "lg:order-2" : ""}`}>
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                {t("about.p1")}
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                {t("about.p2")}
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                {t("about.p3")}
-              </p>
+              {paragraphs.map((paragraph, index) => (
+                <TextParagraph
+                  key={index}
+                  text={paragraph.text}
+                  isLarge={paragraph.isLarge}
+                />
+              ))}
             </div>
 
             {/* Stats */}
             <div className={`lg:col-span-2 ${isRTL ? "lg:order-1" : ""}`}>
               <div className="grid grid-cols-1 gap-6">
                 {stats.map((stat, index) => (
-                  <div
-                    key={stat.label}
-                    className="bg-secondary/50 border border-border rounded-xl p-6 text-center transition-all duration-300 hover:border-primary/50 hover:bg-secondary"
-                    style={{
-                      transitionDelay: `${index * 100}ms`,
-                    }}
-                  >
-                    <div className="text-4xl font-bold text-primary mb-2">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {stat.label}
-                    </div>
-                  </div>
+                  <StatCard key={stat.label} stat={stat} />
                 ))}
               </div>
             </div>
