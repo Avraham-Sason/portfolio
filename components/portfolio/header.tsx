@@ -7,7 +7,7 @@ import { Menu, X, Globe } from "lucide-react";
 import Image from "next/image";
 
 export function Header() {
-    const { language, setLanguage, t } = useLanguage();
+    const { language, switchLanguage, t } = useLanguage();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const navItems = [
@@ -19,7 +19,7 @@ export function Header() {
     ];
 
     const toggleLanguage = () => {
-        setLanguage(language === "en" ? "he" : "en");
+        switchLanguage(language === "en" ? "he" : "en");
     };
 
     return (

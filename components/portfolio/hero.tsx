@@ -4,6 +4,7 @@ import { useLanguage } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import MyImage from "../MyImage";
+import TextType from "../TextType";
 
 export function Hero() {
     return (
@@ -12,7 +13,7 @@ export function Hero() {
             <div className="max-w-6xl px-4 sm:px-6 lg:px-8 py-32 relative flex flex-col gap-10">
                 <div className=" flex gap-10 items-center flex-wrap justify-center">
                     <HeroTextContent />
-                    <MyImage className="w-full 2xl:w-96 " containerClassName="" />
+                    <MyImage className="w-full 2xl:w-96 " />
                 </div>
                 <HeroCodeBlock />
             </div>
@@ -42,21 +43,14 @@ const heroCodeSnippet = `const developer = {
 
 const heroSocialLinks = [
     {
-        href: "https://github.com",
-        label: "GitHub",
-        Icon: Github,
-        target: "_blank",
-        rel: "noopener noreferrer",
-    },
-    {
-        href: "https://linkedin.com",
+        href: "https://www.linkedin.com/in/avraham-sason/",
         label: "LinkedIn",
         Icon: Linkedin,
         target: "_blank",
         rel: "noopener noreferrer",
     },
     {
-        href: "mailto:contact@example.com",
+        href: "mailto:avi6190i@gmail.com?subject=Hello Avraham - Portfolio Inquiry&body=Hi Avraham,%0D%0A%0D%0AI came across your portfolio and would like to connect with you.%0D%0A%0D%0ABest regards,",
         label: "Email",
         Icon: Mail,
     },
@@ -74,11 +68,31 @@ const HeroBackground = () => {
 
 const HeroHeading = () => {
     const { t } = useLanguage();
+    const greeting = t("hero.greeting");
+    const name = t("hero.name");
+    const title = t("hero.title");
+
     return (
-        <div className="space-y-4">
-            <p className="text-primary font-mono text-sm tracking-wider animate-fade-in-up">{t("hero.greeting")}</p>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground animate-fade-in-up animation-delay-200 ">{t("hero.name")}</h1>
-            <h2 className="text-2xl sm:text-3xl text-muted-foreground font-light animate-fade-in-up animation-delay-300">{t("hero.title")}</h2>
+        <div className="space-y-4 lg:w-xl w-full">
+            <TextType key={greeting} cursorCharacter={"."} as="p" text={greeting} className="text-primary font-mono text-sm tracking-wider w-full" />
+            <TextType
+                key={name}
+                typingSpeed={40}
+                cursorCharacter={""}
+                as="h1"
+                initialDelay={600}
+                text={name}
+                className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground w-full "
+            />
+            <TextType
+                key={title}
+                typingSpeed={40}
+                initialDelay={1200}
+                cursorCharacter={""}
+                as="h2"
+                text={title}
+                className="text-2xl sm:text-3xl text-muted-foreground font-light w-full"
+            />
         </div>
     );
 };
@@ -122,10 +136,17 @@ const HeroSocialLinks = () => {
 
 const HeroTextContent = () => {
     const { t, isRTL } = useLanguage();
+    const subtitle = t("hero.subtitle");
+
     return (
         <div className={`space-y-8 ${isRTL ? "lg:order-2" : ""}`}>
             <HeroHeading />
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-xl animate-fade-in-up animation-delay-400">{t("hero.subtitle")}</p>
+            <TextType
+                key={subtitle}
+                initialDelay={2300}
+                text={subtitle}
+                className="text-lg text-muted-foreground leading-relaxed max-w-xl xl:w-xl min-h-24"
+            />
             <HeroActions />
             <HeroSocialLinks />
         </div>

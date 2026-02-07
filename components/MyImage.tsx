@@ -44,13 +44,13 @@ const AnimationStyles = () => (
     `}</style>
 );
 
-export default function MyImage(props: SvgProps & { containerClassName?: string }) {
+export default function MyImage(props: SvgProps) {
     const { ref, isVisible } = useScrollAnimation({
         threshold: 0.3,
         triggerOnce: true,
         requireFullView: true,
     });
-    
+
     const svgRef = useRef<SVGSVGElement>(null);
     const [viewBox, setViewBox] = useState<string>("0 100 434 450");
 
@@ -84,7 +84,7 @@ export default function MyImage(props: SvgProps & { containerClassName?: string 
     return (
         <>
             <AnimationStyles />
-            <div ref={ref} className={props.containerClassName}>
+            <div ref={ref}>
                 <svg
                     ref={svgRef}
                     version="1.0"
