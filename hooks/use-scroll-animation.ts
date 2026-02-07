@@ -6,12 +6,13 @@ interface UseScrollAnimationOptions {
   threshold?: number
   rootMargin?: string
   triggerOnce?: boolean
+  requireFullView?: boolean
 }
 
 export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
   options: UseScrollAnimationOptions = {}
 ) {
-  const { threshold = 0.1, rootMargin = "0px", triggerOnce = false } = options
+  const { threshold = 0.1, rootMargin = "0px", triggerOnce = false, requireFullView = false } = options
   const ref = useRef<T>(null)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -21,7 +22,11 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        const isFullyVisible = requireFullView 
+          ? entry.isIntersecting && entry.intersectionRatio >= 1 
+          : entry.isIntersecting
+        
+        if (isFullyVisible) {
           setIsVisible(true)
           if (triggerOnce) {
             observer.unobserve(element)
@@ -30,7 +35,7 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
           setIsVisible(false)
         }
       },
-      { threshold, rootMargin }
+      { threshold: requireFullView ? 1.0 : threshold, rootMargin }
     )
 
     observer.observe(element)
@@ -38,7 +43,7 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
     return () => {
       observer.unobserve(element)
     }
-  }, [threshold, rootMargin, triggerOnce])
+  }, [threshold, rootMargin, triggerOnce, requireFullView])
 
   return { ref, isVisible }
 }
