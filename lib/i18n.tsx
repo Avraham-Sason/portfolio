@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useCallback, type ReactNode } from "react";
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from "react";
 
 export type Language = "en" | "he";
 
@@ -215,15 +215,27 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-    const [language, setLanguage] = useState<Language>((localStorage.getItem("language") as Language) || "en");
+    const [language, setLanguage] = useState<Language>("en");
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const savedLanguage = localStorage.getItem("language") as Language;
+            if (savedLanguage && (savedLanguage === "en" || savedLanguage === "he")) {
+                setLanguage(savedLanguage);
+                document.documentElement.dir = savedLanguage === "he" ? "rtl" : "ltr";
+            }
+        }
+    }, []);
 
     const switchLanguage = useCallback(
         (lang: Language) => {
             setLanguage(lang);
             document.documentElement.dir = lang === "he" ? "rtl" : "ltr";
-            localStorage.setItem("language", lang);
+            if (typeof window !== "undefined") {
+                localStorage.setItem("language", lang);
+            }
         },
-        [setLanguage,language]
+        []
     );
 
     const t = useCallback(
