@@ -3,7 +3,7 @@
 import { useLanguage } from "@/lib/i18n"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 import { Button } from "@/components/ui/button"
-import { Mail, MapPin, Clock, ArrowRight, Github, Linkedin } from "lucide-react"
+import { Mail, MapPin, Clock, ArrowRight, Github, Linkedin, Phone } from "lucide-react"
 
 export function Contact() {
   const { t } = useLanguage()
@@ -13,13 +13,14 @@ export function Contact() {
     {
       icon: Mail,
       label: t("contact.email"),
-      value: "nahum.takum@example.com",
-      href: "mailto:nahum.takum@example.com",
+      value: "avi6190i@gmail.com",
+      href: "mailto:avi6190i@gmail.com",
     },
     {
-      icon: MapPin,
-      label: t("contact.location"),
-      value: t("contact.locationValue"),
+      icon: Phone,
+      label: t("contact.phone"),
+      value: t("contact.phoneValue"),
+      href: "tel:0546559314",
     },
     {
       icon: Clock,
@@ -64,7 +65,7 @@ export function Contact() {
                     }}
                   >
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
-                      <Icon className="h-5 w-5 text-primary" />
+                    {item.href ? <a href={item.href}><Icon className="h-5 w-5 text-primary" /></a> : <Icon className="h-5 w-5 text-primary" />}
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">
@@ -110,17 +111,16 @@ export function Contact() {
 
             {/* CTA Card */}
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-br from-primary/15 via-accent/10 to-primary/5 rounded-2xl blur-xl" />
+              <div className="absolute -inset-4 bg-linear-to-br from-primary/15 via-accent/10 to-primary/5 rounded-2xl blur-xl" />
               <div className="relative bg-card border border-border rounded-xl p-8 h-full flex flex-col justify-center">
                 <h3 className="text-2xl font-bold text-foreground mb-4">
-                  Ready to build something great?
+                  {t("contact.cta.title")}
                 </h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  I&apos;m always interested in hearing about new projects and opportunities. 
-                  Whether you have a question or just want to say hi, feel free to reach out.
+                  {t("contact.cta.desc")}
                 </p>
                 <Button asChild size="lg" className="w-fit gap-2">
-                  <a href="mailto:nahum.takum@example.com">
+                  <a href="https://wa.me/972546559314?text=Hello, I'm interested in your services" target="_blank" rel="noopener noreferrer">
                     {t("contact.cta")}
                     <ArrowRight className="h-4 w-4" />
                   </a>

@@ -1,6 +1,6 @@
 {
   "name": "Avraham's Sason portfolio",
-  "version": "1.1.2",
+  "version": "1.0.2",
   "private": true,
   "scripts": {
     "build": "next build",

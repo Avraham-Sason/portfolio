@@ -59,9 +59,9 @@ export function About() {
   const { ref, isVisible } = useScrollAnimation()
 
   const stats = [
-    { value: "20+", label: t("about.years") },
-    { value: "50+", label: t("about.projects") },
-    { value: "15+", label: t("about.technologies") },
+    { value: "3+", label: t("about.years") },
+    { value: "30+", label: t("about.projects") },
+    { value: "25+", label: t("about.technologies") },
   ]
 
   const paragraphs = [

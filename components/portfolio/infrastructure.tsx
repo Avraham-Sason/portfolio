@@ -41,6 +41,7 @@ const InfrastructureCard = ({
 }
 
 const ArchitectureDiagram = () => {
+  const { t } = useLanguage()
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 })
 
   return (
@@ -71,7 +72,7 @@ const ArchitectureDiagram = () => {
           </div>
         </div>
         <p className="text-muted-foreground text-sm max-w-xl mx-auto">
-          Modern architectures demand a holistic understanding of the entire stack. From user-facing interfaces to data persistence, every layer matters.
+          {t("infra.diagram.desc")}
         </p>
       </div>
     </div>

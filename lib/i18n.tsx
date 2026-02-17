@@ -33,7 +33,7 @@ const translations = {
         "about.title": "About",
         "about.heading": "Engineering with Purpose",
         "about.p1":
-            "With over two decades of experience in software development, I bring a mature, thoughtful approach to building digital products. Currently at Akeyless Telematics, I architect and develop full-stack solutions that serve real business needs.",
+            "With over 3 years of experience in software development, I bring a thoughtful, hands-on approach to building digital products. Currently at Akeyless Telematics, I architect and develop full-stack solutions that serve real business needs.",
         "about.p2":
             "My philosophy centers on writing clean, maintainable code that scales. I believe in the power of well-structured systems and the importance of choosing the right tool for each challenge.",
         "about.p3":
@@ -97,21 +97,25 @@ const translations = {
         "infra.cloud.desc": "Deep experience with Google Cloud Platform services and best practices",
         "infra.automation.title": "Automation",
         "infra.automation.desc": "Infrastructure as code and workflow automation for operational excellence",
+        "infra.diagram.desc":
+            "Modern architectures demand a holistic understanding of the entire stack. From user-facing interfaces to data persistence, every layer matters.",
 
         // Contact
         "contact.title": "Contact",
         "contact.heading": "Let's Connect",
         "contact.subheading": "Open to discussing new opportunities, technical challenges, or just connecting with fellow developers",
         "contact.email": "Email",
-        "contact.location": "Location",
-        "contact.locationValue": "Elad, Israel",
+        "contact.phone": "Phone",
+        "contact.phoneValue": "0546559314",
         "contact.availability": "Availability",
         "contact.availabilityValue": "Open to opportunities",
         "contact.cta": "Send Message",
+        "contact.cta.title": "Ready to build something great?",
+        "contact.cta.desc":
+            "I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, feel free to reach out.",
 
         // Footer
         "footer.rights": "All rights reserved.",
-        "footer.built": "Built with Next.js, TypeScript & Tailwind CSS",
     },
     he: {
         // Navigation
@@ -133,7 +137,7 @@ const translations = {
         "about.title": "אודות",
         "about.heading": "הנדסה עם מטרה",
         "about.p1":
-            "עם יותר משני עשורים של ניסיון בפיתוח תוכנה, אני מביא גישה בוגרת ומחושבת לבניית מוצרים דיגיטליים. כיום ב-Akeyless Telematics, אני מתכנן ומפתח פתרונות full-stack שמשרתים צרכים עסקיים אמיתיים.",
+            "עם למעלה מ-3 שנות ניסיון בפיתוח תוכנה, אני מביא גישה מחושבת ומעשית לבניית מוצרים דיגיטליים. כיום ב-Akeyless Telematics, אני מתכנן ומפתח פתרונות full-stack שמשרתים צרכים עסקיים אמיתיים.",
         "about.p2":
             "הפילוסופיה שלי מתמקדת בכתיבת קוד נקי וניתן לתחזוקה שמתרחב. אני מאמין בכוח של מערכות מובנות היטב ובחשיבות של בחירת הכלי הנכון לכל אתגר.",
         "about.p3":
@@ -194,21 +198,25 @@ const translations = {
         "infra.cloud.desc": "ניסיון עמוק בשירותי Google Cloud Platform ושיטות עבודה מומלצות",
         "infra.automation.title": "אוטומציה",
         "infra.automation.desc": "תשתית כקוד ואוטומציה של תהליכי עבודה למצוינות תפעולית",
+        "infra.diagram.desc":
+            "ארכיטקטורות מודרניות דורשות הבנה הוליסטית של כל ה-stack. מממשקי משתמש ועד אחסון נתונים, כל שכבה חשובה.",
 
         // Contact
         "contact.title": "יצירת קשר",
         "contact.heading": "בואו נתחבר",
         "contact.subheading": "פתוח לדיון על הזדמנויות חדשות, אתגרים טכניים, או סתם להתחבר עם מפתחים אחרים",
         "contact.email": "אימייל",
-        "contact.location": "מיקום",
-        "contact.locationValue": "אלעד, ישראל",
+        "contact.phone": "טלפון",
+        "contact.phoneValue": "0546559314",
         "contact.availability": "זמינות",
         "contact.availabilityValue": "פתוח להזדמנויות",
         "contact.cta": "שלח הודעה",
+        "contact.cta.title": "מוכן לבנות משהו גדול?",
+        "contact.cta.desc":
+            "אני תמיד מעוניין לשמוע על פרויקטים והזדמנויות חדשות. בין אם יש לך שאלה או שאתה רק רוצה להגיד שלום, אל תהסס ליצור קשר.",
 
         // Footer
         "footer.rights": "כל הזכויות שמורות.",
-        "footer.built": "נבנה עם Next.js, TypeScript ו-Tailwind CSS",
     },
 };
 
