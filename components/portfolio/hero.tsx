@@ -139,7 +139,7 @@ const HeroTextContent = () => {
     const subtitle = t("hero.subtitle");
 
     return (
-        <div className={`space-y-8 ${isRTL ? "lg:order-2" : ""}`}>
+        <div className={`space-y-8 w-[300px] lg:w-fit ${isRTL ? "lg:order-2" : ""}`}>
             <HeroHeading />
             <TextType
                 key={subtitle}
@@ -156,7 +156,7 @@ const HeroTextContent = () => {
 const HeroCodeBlock = () => {
     const { isRTL } = useLanguage();
     return (
-        <div className={`w-full ${isRTL ? "lg:order-1" : ""}`}>
+        <div dir="ltr" className={`w-full ${isRTL ? "lg:order-1" : ""}`}>
             <div className="relative animate-fade-in animation-delay-300  w-full max-w-[300px] sm:max-w-lg mx-auto lg:max-w-none">
                 <div className="absolute -inset-4 animate-gradient-border-glow rounded-2xl" />
                 <div className="absolute -inset-px animate-gradient-border rounded-xl" />
