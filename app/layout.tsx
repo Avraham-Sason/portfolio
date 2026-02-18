@@ -27,30 +27,21 @@ export const metadata: Metadata = {
     authors: [{ name: "Avraham Sason" }],
     creator: "Avraham Sason",
     generator: "Avraham-Sason.app",
-    openGraph: {
-        type: "website",
-        locale: "en_US",
-        url: "/",
-        siteName: "Avraham Sason",
-        title: "Avraham Sason | Full Stack Developer",
-        description:
-            "Senior Full Stack Developer specializing in React, TypeScript, Node.js, and cloud infrastructure. Building scalable, production-grade web applications.",
-        images: [
-            {
-                url: "/logo_small.png",
-                width: 512,
-                height: 512,
-                alt: "Avraham Sason - Full Stack Developer",
-            },
-        ],
-    },
-    twitter: {
-        card: "summary",
-        title: "Avraham Sason | Full Stack Developer",
-        description:
-            "Senior Full Stack Developer specializing in React, TypeScript, Node.js, and cloud infrastructure.",
-        images: ["/logo_small.png"],
-    },
+        openGraph: {
+            type: "website",
+            locale: "en_US",
+            url: "/",
+            siteName: "Avraham Sason",
+            title: "Avraham Sason | Full Stack Developer",
+            description:
+                "Senior Full Stack Developer specializing in React, TypeScript, Node.js, and cloud infrastructure. Building scalable, production-grade web applications.",
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: "Avraham Sason | Full Stack Developer",
+            description:
+                "Senior Full Stack Developer specializing in React, TypeScript, Node.js, and cloud infrastructure.",
+        },
     icons: {
         icon: [
             {
