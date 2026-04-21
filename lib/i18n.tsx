@@ -73,17 +73,53 @@ const translations = {
         "projects.viewCode": "View Code",
         "projects.viewLive": "View Live",
 
-        "projects.fleet.title": "Fleet Management Dashboard",
-        "projects.fleet.desc":
-            "Real-time vehicle tracking and analytics platform with interactive maps, live data streaming, and comprehensive reporting capabilities.",
+        "projects.dashboard.title": "Dashboard",
+        "projects.dashboard.desc":
+            "Real-time fleet management system tracking 4,000+ vehicles with live map, speed, engine/battery status, and CANBUS data\nBuilt remote vehicle control (door lock, fuel cutoff), geo-boundary alerts, and full travel/event history\nDesigned a hierarchical permission system (customer → branches → vehicles/users/polygons) for multi-level access control",
 
-        "projects.auth.title": "Enterprise Auth System",
-        "projects.auth.desc":
-            "Secure authentication microservice with role-based access control, OAuth integration, and audit logging for enterprise applications.",
+        "projects.toolbox.title": "Toolbox",
+        "projects.toolbox.desc":
+            "Internal back-office system centralizing all company data across vehicles, transmitters, users, equipment, and charging stations\nSMS automation management for transmitters and full customer/vehicle association controls",
 
-        "projects.pipeline.title": "CI/CD Pipeline Framework",
-        "projects.pipeline.desc":
-            "Automated deployment infrastructure using Docker, Kubernetes, and GitHub Actions for seamless continuous delivery.",
+        "projects.installer.title": "Installer App",
+        "projects.installer.desc":
+            "Web app for field technicians covering full vehicle lifecycle: installation, maintenance, and uninstallation workflows",
+
+        "projects.monitor.title": "Monitor",
+        "projects.monitor.desc":
+            "Real-time company health dashboard displaying live failure points and statistical data\n4-tier alert system (normal → warning → error → critical) with automated email and SMS notifications",
+
+        "projects.knowledge.title": "Knowledge Base",
+        "projects.knowledge.desc":
+            "Full-stack platform (UI + API) serving as a single source of truth for all company technical assets — apps, servers, libraries, and internal services\nMaintains architecture overviews, dependencies, versioning info, and consolidated conclusions per project\nOn every merge to main, a GitHub Actions CI workflow triggers an AI agent that analyzes the changes and automatically updates all relevant documentation files — keeping docs accurate, consistent, and aligned with the live codebase",
+
+        "projects.biServer.title": "BI Server",
+        "projects.biServer.desc":
+            "Backend service handling report generation, vehicle data processing, AI agent management, and background task execution\nSupports the Monitor system with real-time data and manages centralized information across the platform",
+
+        "projects.devicesServer.title": "Devices Server",
+        "projects.devicesServer.desc":
+            "Core backend server managing all vehicle communication — activating actions, receiving transmitter and SIM data in real time\nIntegrated with 4 SIM providers and Mandy, exposing a customer-facing API for vehicle data retrieval\nSupports Dashboard, Installer App, and Toolbox while running background tasks in parallel",
+
+        "projects.endUserServer.title": "End User Server",
+        "projects.endUserServer.desc":
+            "Manages end-customer data including user credits for external recharges\nHandles all outbound communications — email, SMS, and push notifications for end-users",
+
+        "projects.chargeServer.title": "Charge Server",
+        "projects.chargeServer.desc":
+            "Manages full EV charging session lifecycle — sending start/end commands and receiving real-time charging status\nIntegrated with OCPI provider for standardized cross-network EV charging interoperability",
+
+        "projects.dataSyncServer.title": "Data Sync Server",
+        "projects.dataSyncServer.desc":
+            "Syncs Firebase database to Redis, providing a shared cache layer across all servers and applications — optimizing read/write speeds and overall system performance",
+
+        "projects.dataSocketServer.title": "Data Socket Server",
+        "projects.dataSocketServer.desc":
+            "Manages the full WebSocket session lifecycle (open, maintain, close) between browser clients and Redis for real-time data delivery",
+
+        "projects.commons.title": "Akeyless Commons",
+        "projects.commons.desc":
+            "Four NPM libraries — server, client, assets, types — centralizing common recurring logic in one place for both client and server sides across all company projects",
 
         // Infrastructure
         "infra.title": "Infrastructure",
@@ -177,14 +213,53 @@ const translations = {
         "projects.viewCode": "צפה בקוד",
         "projects.viewLive": "צפה בחי",
 
-        "projects.fleet.title": "לוח ניהול צי רכבים",
-        "projects.fleet.desc": "פלטפורמת מעקב וניתוח רכבים בזמן אמת עם מפות אינטראקטיביות, הזרמת נתונים חיה ויכולות דיווח מקיפות.",
+        "projects.dashboard.title": "Dashboard",
+        "projects.dashboard.desc":
+            "מערכת ניהול צי בזמן אמת המנטרת מעל 4,000 רכבים עם מפה חיה, מהירות, מצב מנוע/סוללה ונתוני CANBUS\nפיתוח שליטה מרחוק ברכב (נעילת דלתות, ניתוק דלק), התראות גבול גאוגרפי והיסטוריית נסיעות/אירועים מלאה\nתכנון מערכת הרשאות היררכית (לקוח ← סניפים ← רכבים/משתמשים/פוליגונים) לבקרת גישה רב-שכבתית",
 
-        "projects.auth.title": "מערכת אימות ארגונית",
-        "projects.auth.desc": "מיקרו-שירות אימות מאובטח עם בקרת גישה מבוססת תפקידים, אינטגרציה של OAuth ורישום ביקורת לאפליקציות ארגוניות.",
+        "projects.toolbox.title": "Toolbox",
+        "projects.toolbox.desc":
+            "מערכת back-office פנימית המרכזת את כל נתוני החברה — רכבים, משדרים, משתמשים, ציוד ועמדות טעינה\nניהול אוטומציית SMS למשדרים ובקרת שיוך לקוחות/רכבים מלאה",
 
-        "projects.pipeline.title": "מסגרת CI/CD Pipeline",
-        "projects.pipeline.desc": "תשתית פריסה אוטומטית באמצעות Docker, Kubernetes ו-GitHub Actions להעברה רציפה חלקה.",
+        "projects.installer.title": "Installer App",
+        "projects.installer.desc":
+            "אפליקציית ווב לטכנאי שטח המכסה מחזור חיים מלא של רכב: התקנה, תחזוקה והסרה",
+
+        "projects.monitor.title": "Monitor",
+        "projects.monitor.desc":
+            "לוח בריאות חברה בזמן אמת המציג נקודות כשל חיות ונתונים סטטיסטיים\nמערכת התראות ב-4 רמות (רגיל ← אזהרה ← שגיאה ← קריטי) עם שליחת אימייל ו-SMS אוטומטיים",
+
+        "projects.knowledge.title": "Knowledge Base",
+        "projects.knowledge.desc":
+            "פלטפורמת פול-סטאק (UI + API) המשמשת כמקור אמת יחיד לכל הנכסים הטכניים של החברה — אפליקציות, שרתים, ספריות ושירותים פנימיים\nשומרת סקירות ארכיטקטורה, תלויות, מידע על גרסאות ומסקנות מאוחדות לכל פרויקט\nבכל merge ל-main, workflow של GitHub Actions מפעיל AI agent שמנתח את השינויים ומעדכן אוטומטית את כל קבצי התיעוד — שומר על תיעוד מדויק, עקבי ומסונכרן עם הקוד",
+
+        "projects.biServer.title": "BI Server",
+        "projects.biServer.desc":
+            "שירות backend המטפל בהפקת דוחות, עיבוד נתוני רכב, ניהול AI agents וביצוע משימות רקע\nתומך במערכת ה-Monitor עם נתונים בזמן אמת ומנהל מידע מרוכז ברחבי הפלטפורמה",
+
+        "projects.devicesServer.title": "Devices Server",
+        "projects.devicesServer.desc":
+            "שרת backend ליבתי המנהל את כל תקשורת הרכבים — הפעלת פעולות וקבלת נתוני משדר ו-SIM בזמן אמת\nאינטגרציה עם 4 ספקי SIM ו-Mandy, חושף API ללקוחות לאחזור נתוני רכב\nתומך ב-Dashboard, Installer App ו-Toolbox במקביל להרצת משימות רקע",
+
+        "projects.endUserServer.title": "End User Server",
+        "projects.endUserServer.desc":
+            "מנהל נתוני לקוחות קצה כולל קרדיטים לטעינות חיצוניות\nמטפל בכל התקשורת היוצאת — אימייל, SMS והתראות push ללקוחות קצה",
+
+        "projects.chargeServer.title": "Charge Server",
+        "projects.chargeServer.desc":
+            "מנהל מחזור חיים מלא של סשן טעינת רכב חשמלי — שליחת פקודות start/end וקבלת סטטוס טעינה בזמן אמת\nאינטגרציה עם ספק OCPI לתאימות בין-רשתית מתוקננת לטעינת EV",
+
+        "projects.dataSyncServer.title": "Data Sync Server",
+        "projects.dataSyncServer.desc":
+            "מסנכרן את בסיס הנתונים Firebase ל-Redis, מספק שכבת cache משותפת לכל השרתים והאפליקציות — משפר מהירויות קריאה/כתיבה וביצועי המערכת כולה",
+
+        "projects.dataSocketServer.title": "Data Socket Server",
+        "projects.dataSocketServer.desc":
+            "מנהל את מחזור החיים המלא של WebSocket (פתיחה, תחזוקה, סגירה) בין דפדפני לקוחות ל-Redis לאספקת נתונים בזמן אמת",
+
+        "projects.commons.title": "Akeyless Commons",
+        "projects.commons.desc":
+            "ארבע ספריות NPM — server, client, assets, types — לריכוז לוגיקה משותפת חוזרת במקום אחד, גם בצד הלקוח וגם בצד השרת, לכל פרויקטי החברה",
 
         // Infrastructure
         "infra.title": "תשתית",

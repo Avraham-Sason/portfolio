@@ -2,8 +2,21 @@
 
 import { useLanguage } from "@/lib/i18n";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Map, Shield, GitBranch, LucideIcon } from "lucide-react";
+import {
+    Map,
+    Wrench,
+    HardHat,
+    Activity,
+    BookOpen,
+    BarChart3,
+    Cpu,
+    Users,
+    Zap,
+    RefreshCw,
+    Radio,
+    Package,
+    LucideIcon,
+} from "lucide-react";
 
 const ProjectCard = ({
     project,
@@ -18,10 +31,10 @@ const ProjectCard = ({
     };
     index: number;
 }) => {
-    const { t } = useLanguage();
     const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
     const Icon = project.icon;
     const isFromLeft = index % 2 === 0;
+    const bullets = project.description.split("\n").filter(Boolean);
     return (
         <div
             ref={ref}
@@ -35,28 +48,26 @@ const ProjectCard = ({
             </div>
 
             {/* Content */}
-            <div className="p-6">
+            <div className="p-6 flex flex-col h-[calc(100%-8rem)]">
                 <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">{project.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{project.description}</p>
+
+                {/* Bulleted description */}
+                <ul className="space-y-2 mb-4 flex-1">
+                    {bullets.map((line, i) => (
+                        <li key={i} className="text-muted-foreground text-sm leading-relaxed flex gap-2">
+                            <span className="text-primary shrink-0 mt-1">•</span>
+                            <span>{line}</span>
+                        </li>
+                    ))}
+                </ul>
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                         <span key={tech} className="text-xs bg-secondary/50 text-muted-foreground px-2 py-1 rounded">
                             {tech}
                         </span>
                     ))}
-                </div>
-
-                {/* Actions */}
-                <div className="flex gap-3">
-                    <Button variant="outline" size="sm" className="flex-1 gap-2 bg-transparent">
-                        <Github className="h-4 w-4" />
-                        {t("projects.viewCode")}
-                    </Button>
-                    <Button variant="ghost" size="sm" className="gap-2">
-                        <ExternalLink className="h-4 w-4" />
-                    </Button>
                 </div>
             </div>
         </div>
@@ -69,25 +80,88 @@ export function Projects() {
 
     const projects = [
         {
-            title: t("projects.fleet.title"),
-            description: t("projects.fleet.desc"),
-            technologies: ["React", "TypeScript", "Mapbox", "WebSocket", "Node.js"],
+            title: t("projects.dashboard.title"),
+            description: t("projects.dashboard.desc"),
+            technologies: ["React", "TypeScript", "Firebase"],
             icon: Map,
             color: "from-primary/20 to-chart-2/20",
         },
         {
-            title: t("projects.auth.title"),
-            description: t("projects.auth.desc"),
-            technologies: ["Node.js", "Express", "Firebase", "JWT", "OAuth 2.0"],
-            icon: Shield,
+            title: t("projects.toolbox.title"),
+            description: t("projects.toolbox.desc"),
+            technologies: ["Next.js", "TypeScript", "Firebase", "WebSocket", "WebWorker"],
+            icon: Wrench,
             color: "from-chart-2/20 to-primary/20",
         },
         {
-            title: t("projects.pipeline.title"),
-            description: t("projects.pipeline.desc"),
-            technologies: ["Docker", "Kubernetes", "GitHub Actions", "YAML", "GCP"],
-            icon: GitBranch,
+            title: t("projects.installer.title"),
+            description: t("projects.installer.desc"),
+            technologies: ["React", "TypeScript", "Firebase"],
+            icon: HardHat,
             color: "from-primary/20 to-chart-3/20",
+        },
+        {
+            title: t("projects.monitor.title"),
+            description: t("projects.monitor.desc"),
+            technologies: ["Vue.js", "TypeScript", "Firebase", "WebSocket"],
+            icon: Activity,
+            color: "from-chart-3/20 to-primary/20",
+        },
+        {
+            title: t("projects.knowledge.title"),
+            description: t("projects.knowledge.desc"),
+            technologies: ["Next.js", "TypeScript", "GitHub Actions", "AI Agent"],
+            icon: BookOpen,
+            color: "from-chart-2/20 to-chart-3/20",
+        },
+        {
+            title: t("projects.biServer.title"),
+            description: t("projects.biServer.desc"),
+            technologies: ["Node.js", "Express", "Firebase-Admin", "Redis"],
+            icon: BarChart3,
+            color: "from-primary/20 to-chart-2/20",
+        },
+        {
+            title: t("projects.devicesServer.title"),
+            description: t("projects.devicesServer.desc"),
+            technologies: ["Node.js", "Express", "Firebase-Admin", "Redis"],
+            icon: Cpu,
+            color: "from-chart-2/20 to-primary/20",
+        },
+        {
+            title: t("projects.endUserServer.title"),
+            description: t("projects.endUserServer.desc"),
+            technologies: ["Node.js", "Express", "Firebase-Admin", "Redis"],
+            icon: Users,
+            color: "from-primary/20 to-chart-3/20",
+        },
+        {
+            title: t("projects.chargeServer.title"),
+            description: t("projects.chargeServer.desc"),
+            technologies: ["Node.js", "Express", "Firebase-Admin", "Redis", "OCPI"],
+            icon: Zap,
+            color: "from-chart-3/20 to-primary/20",
+        },
+        {
+            title: t("projects.dataSyncServer.title"),
+            description: t("projects.dataSyncServer.desc"),
+            technologies: ["Node.js", "Express", "Redis"],
+            icon: RefreshCw,
+            color: "from-chart-2/20 to-chart-3/20",
+        },
+        {
+            title: t("projects.dataSocketServer.title"),
+            description: t("projects.dataSocketServer.desc"),
+            technologies: ["Node.js", "Express", "Redis", "WebSocket"],
+            icon: Radio,
+            color: "from-primary/20 to-chart-2/20",
+        },
+        {
+            title: t("projects.commons.title"),
+            description: t("projects.commons.desc"),
+            technologies: ["NPM", "TypeScript"],
+            icon: Package,
+            color: "from-chart-3/20 to-chart-2/20",
         },
     ];
 
