@@ -89,7 +89,7 @@ export function Contact() {
               {/* Social Links */}
               <div className="flex gap-4 pt-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/Avraham-Sason"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-card border border-border rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all"
@@ -98,7 +98,7 @@ export function Contact() {
                   <Github className="h-5 w-5" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/avraham-sason"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-card border border-border rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 transition-all"

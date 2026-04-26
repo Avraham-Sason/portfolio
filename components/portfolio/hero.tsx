@@ -50,6 +50,13 @@ const heroSocialLinks = [
         rel: "noopener noreferrer",
     },
     {
+        href: "https://github.com/Avraham-Sason",
+        label: "GitHub",
+        Icon: Github,
+        target: "_blank",
+        rel: "noopener noreferrer",
+    },
+    {
         href: "mailto:avi6190i@gmail.com?subject=Hello Avraham - Portfolio Inquiry&body=Hi Avraham,%0D%0A%0D%0AI came across your portfolio and would like to connect with you.%0D%0A%0D%0ABest regards,",
         label: "Email",
         Icon: Mail,
